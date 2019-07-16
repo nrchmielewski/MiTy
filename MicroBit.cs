@@ -24,4 +24,8 @@ public class MicroBit : MonoBehaviour
         get{ return this.connected; }
     }
     /* #endRegion */
+    /* #region Thread Managment fields */
+    private volatile bool needUpdate;
+    private volatile bool end;
+    /* #endRegion */
 }
