@@ -191,6 +191,41 @@ public class MicroBit : MonoBehaviour
                 this.needUpdate = false;
             }
             string[] line = this.serial.ReadLine().Split(',');
+            int currentIndex = 0;
+            try
+            {
+                if(this.UseTime)
+                {
+                    this.time = Convert.ToInt32(line[currentIndex]);
+                    currentIndex ++;
+                }
+                if(this.UseButtons)
+                {
+                    this.a = line[currentIndex] == "1";
+                    currentIndex ++;
+                    this.b = line[currentIndex] == "1";
+                    currentIndex ++;
+                }
+                if(this.UseCompass)
+                {
+                    this.compass = Convert.ToInt32(line[currentIndex]);
+                    currentIndex ++;
+                }
+                if(this.UseAccelerometer)
+                {
+                    this.x = Convert.ToInt32(line[currentIndex]);
+                    currentIndex ++;
+                    this.y = Convert.ToInt32(line[currentIndex]);
+                    currentIndex ++;
+                    this.z = Convert.ToInt32(line[currentIndex]);
+                    currentIndex ++;
+                }
+            }
+            catch (Exception) 
+            {
+                this.needUpdate = true;
+            }
+        }
         this.close();
     }
     private void send(CommandType command, string[] args)
