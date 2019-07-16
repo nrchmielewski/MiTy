@@ -1,11 +1,11 @@
 # Instantation
-To instate a MicroBit object, simply attach `MicroBit.cs` to the gameobject you wish to control. Then, create a second script on that object, where you can interact with the MicroBit. From that script, gain accses to your MicroBit by calling `GetComponent<MicroBit>();`.
+To instate a micro:bit object, simply attach `MicroBit.cs` to the gameobject you wish to control. Then, create a second script on that object, where you can interact with the micro:bit. From that script, gain accses to your micro:bit by calling `GetComponent<MicroBit>();`.
 
-These Docs will assume refrences to the MicroBit object will be done through the syntax `controller.foo()`. This assumes that you have created a MicroBit object and refrenced it like `MicroBit controller = GetComponent<MicroBit>();`. If you wish to call your variable something else, feel free to do so, but be wary of copy-pasting code.
+These Docs will assume refrences to the Micro:Bit object will be done through the syntax `controller.foo()`. This assumes that you have created a micro:bit object and refrenced it like `MicroBit controller = GetComponent<MicroBit>();`. If you wish to call your variable something else, feel free to do so, but be wary of copy-pasting code.
 # Full API
-The MiTy framework allows accses to the MicroBit through asynchronously updated properties. It also does not track a variable unless specfically asked to. For example, take the accelerometer input. To accses the x, y, and z coordinates, you simply need to call `controller.X;`, `controller.Y;`, `controller.Z;`. However, by default the accelerometer is not enabled. To enable the accelerometer, call `controller.UseAccelerometer = true`. If you fail to do this, a `System.ArgumentException` will be thrown, declaring: "Port is not configured to use Accelerometer". Similarly, if you wish to stop using the accelerometer input, call `controller.UseAccelerometer = false`
+The MiTy framework allows accses to the Micro:Bit through asynchronously updated properties. It also does not track a variable unless specfically asked to. For example, take the accelerometer input. To accses the x, y, and z coordinates, you simply need to call `controller.X;`, `controller.Y;`, `controller.Z;`. However, by default the accelerometer is not enabled. To enable the accelerometer, call `controller.UseAccelerometer = true`. If you fail to do this, a `System.ArgumentException` will be thrown, declaring: "Port is not configured to use Accelerometer". Similarly, if you wish to stop using the accelerometer input, call `controller.UseAccelerometer = false`
 
-Currently accsses to the MicroBit inputs are done using the following syntax
+Currently accsses to the micro:bit inputs are done using the following syntax
 
 | Input | Use Name | Default state | Data Type | Format | Refrence |
 |-------|----------|---------------|-----------|--------|----------|
