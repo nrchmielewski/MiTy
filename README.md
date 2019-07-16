@@ -13,7 +13,7 @@ Finally, use `gameObject.GetComponent(typeof(MicroBit)) as MicroBit`
 From here, visit `docs.md` for a more in-depth guide to the MiTy API.
 
 # Notes:
-By default, MiTy creates an additional thread for every MicroBit, to read the Serial line asynchronously. If you wish to run synchronously, which is NOT advised, comment and uncomment the lines in MicroBit.cs as appropriate. Be aware: synchronous serial read will slow down your process signficantly, and will result in virtually no benefits.
+To view the source code for the Microbit, visit https://makecode.microbit.org/_g7g9bMLhFTLC
 # Bugs, Features and the Future
 ## Bugs
 If you notice any bugs, please log an issue on Github and we will get to you as soon as possible. If you believe you have a fix, feel free to create a new branch with fixes, we will merge code when and where it is appropriate.
