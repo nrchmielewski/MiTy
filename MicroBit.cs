@@ -181,6 +181,32 @@ public class MicroBit : MonoBehaviour
         this.serial.Close();
         this.connected = false;
     }
+    private void threadLoop()
+    {
+        while(!this.end)
+        {
+            if(this.needUpdate)
+            {
+                this.setUse();
+                this.needUpdate = false;
+            }
+            string[] line = this.serial.ReadLine().Split(',');
+        this.close();
+    }
+    private void send(CommandType command, string[] args)
+    {
+        while(!this.serialLock);
+        this.serialLock = false;
+        StringBuilder toSend = new StringBuilder((int)command + ",");
+        foreach(string token in args)
+        {
+            toSend.Append(token);
+            toSend.Append(",");
+        }
+        Debug.Log(toSend.ToString());
+        this.serial.WriteLine(toSend.ToString());
+        this.serialLock = true;
+    }
     /* #region Public utilities */
     public void setUse()
     {
@@ -209,6 +235,10 @@ public class MicroBit : MonoBehaviour
     {
         string[] args = {X.ToString(), Y.ToString(), brightness.ToString()};
         this.send(CommandType.SETPIXEL, args);
+    }
+    public void disconnect()
+    {
+        this.end = true;
     }
     /* #endRegion */
 }
