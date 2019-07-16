@@ -16,7 +16,8 @@ Currently accsses to the micro:bit inputs are done using the following syntax
 | X-axis | UseAccelerometer | off | int | [-2048, 2048]* | `controller.X;` |
 | Y-axis | UseAccelerometer | off | int | [-2048, 2048]* | `controller.Y;` |
 | Z-axis | UseAccelerometer | off | int | [-2048, 2048]* | `controller.Z;` |
-Pins will be implmented very soon!
+
+Pins will be implemented very soon!
 
 \* Note: Accelerometer components are given in milli-Gs, where 1024 mG = 1 G. The accelerometer has a maximum value of ± 2048, even though the actual value may be higher, so 
 
