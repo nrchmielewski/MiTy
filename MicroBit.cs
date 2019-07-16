@@ -52,4 +52,37 @@ public class MicroBit : MonoBehaviour
         }
     }
     /* #endRegion */
+    /* #region Buttons */
+    private bool useButtons;
+    public bool UseButtons
+    {
+        get{ return this.useButtons; }
+        set
+        {
+            if(value != this.useButtons)
+            {
+                this.needUpdate = true;
+                this.useButtons = value;
+            }
+        }
+    }
+    private volatile bool a;
+    public bool A
+    {
+        get
+        {
+            if(!this.useButtons)throw new System.ArgumentException("Port is not configured to use buttons", "original");
+            return this.a;
+        }
+    }
+    private volatile bool b;
+    public bool B
+    {
+        get
+        {
+            if(!this.useButtons)throw new System.ArgumentException("Port is not configured to use Buttons", "original");
+            return this.b;
+        }
+    }
+    /* #endRegion */
 }
