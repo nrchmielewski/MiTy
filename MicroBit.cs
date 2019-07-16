@@ -85,4 +85,28 @@ public class MicroBit : MonoBehaviour
         }
     }
     /* #endRegion */
+    /* #region Compass */
+    private bool useCompass;
+    public bool UseCompass
+    {
+        get{ return this.useCompass; }
+        set
+        {
+            if(value != this.useCompass)
+            {
+                this.needUpdate = true;
+                this.useCompass = value;
+            }
+        }
+    }
+    private volatile int compass;
+    public int Compass
+    {
+        get
+        {
+            if(!this.useCompass)throw new System.ArgumentException("Port is not configured to use Compass", "original");
+            return this.compass;
+        }
+    }
+    /* #endRegion */
 }
