@@ -151,4 +151,34 @@ public class MicroBit : MonoBehaviour
         }
     }
     /* #endRegion */
+
+    void Start()
+    {
+        this.useTime = false;
+        this.useButtons = true;
+        this.useCompass = false;
+        this.useAccelerometer = false;
+        this.serialLock = true;
+        this.connected = false;
+        this.init();
+    }
+    void OnApplicationQuit()
+    {
+        this.disconnect();
+    }
+    void init()
+    {
+        this.needUpdate = true;
+        this.connected = true;
+        this.end = false;
+        this.serial = new SerialPort("COM5", this.BAUD);
+        this.serial.Open();
+        this.handleThread = new Thread(this.threadLoop);
+        this.handleThread.Start();
+    }
+    private void close()
+    {
+        this.serial.Close();
+        this.connected = false;
+    }
 }
