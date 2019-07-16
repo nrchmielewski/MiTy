@@ -181,4 +181,34 @@ public class MicroBit : MonoBehaviour
         this.serial.Close();
         this.connected = false;
     }
+    /* #region Public utilities */
+    public void setUse()
+    {
+        setUse(this.UseTime, this.UseButtons, this.UseCompass, this.UseAccelerometer);
+    }
+    public void setUse(bool UseTime, bool UseButtons, bool UseCompass, bool UseAccelerometer)
+    {
+        this.UseTime = UseTime;
+        this.UseButtons = UseButtons;
+        this.UseCompass = UseCompass;
+        this.UseAccelerometer = UseAccelerometer;
+        string[] args = {UseTime ? "1":"0", UseButtons ? "1":"0", UseCompass ? "1":"0", UseAccelerometer ? "1":"0", "0", "0"};
+        this.send(CommandType.SETUSE, args);
+    }
+    public void writeAnalogPin(int id, int val)
+    {
+        string[] args = {id.ToString(), val.ToString()};
+        this.send(CommandType.WRITEANALOG, args);
+    }
+    public void writeDigitalPin(int id, bool val)
+    {
+        string[] args = {id.ToString(), val.ToString()};
+        this.send(CommandType.WRITEDIGITAL, args);
+    }
+    public void setPixel(int X, int Y, int brightness)
+    {
+        string[] args = {X.ToString(), Y.ToString(), brightness.ToString()};
+        this.send(CommandType.SETPIXEL, args);
+    }
+    /* #endRegion */
 }
