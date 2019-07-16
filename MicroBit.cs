@@ -28,4 +28,28 @@ public class MicroBit : MonoBehaviour
     private volatile bool needUpdate;
     private volatile bool end;
     /* #endRegion */
+    /* #region Time */
+    private bool useTime;
+    public bool UseTime
+    {
+        get{ return this.useTime; }
+        set
+        {
+            if(value != this.useTime)
+            {
+                this.needUpdate = true;
+                this.useTime = value;
+            }
+        }
+    }
+    private volatile int time;
+    public int Time
+    {
+        get
+        {
+            if(!this.useTime)throw new System.ArgumentException("Port is not configured to use Time", "original");
+            return this.time;
+        }
+    }
+    /* #endRegion */
 }
