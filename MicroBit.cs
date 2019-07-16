@@ -109,4 +109,46 @@ public class MicroBit : MonoBehaviour
         }
     }
     /* #endRegion */
+    /* #region Accelerometer */
+    private bool useAccelerometer;
+    public bool UseAccelerometer
+    {
+        get{ return this.useAccelerometer; }
+        set
+        {
+            if(value != this.useAccelerometer)
+            {
+                this.needUpdate = true;
+                this.useAccelerometer = value;
+            }
+        }
+    }
+    private volatile int x;
+    public int X
+    {
+        get
+        {
+            if(!this.useAccelerometer)throw new System.ArgumentException("Port is not configured to use Accelerometer", "original");
+            return this.x;
+        }
+    }
+    private volatile int y;
+    public int Y
+    {
+        get
+        {
+            if(!this.useAccelerometer)throw new System.ArgumentException("Port is not configured to use Accelerometer", "original");
+            return this.y;
+        }
+    }
+    private volatile int z;
+    public int Z
+    {
+        get
+        {
+            if(!this.useAccelerometer)throw new System.ArgumentException("Port is not configured to use Accelerometer", "original");
+            return this.z;
+        }
+    }
+    /* #endRegion */
 }
