@@ -12,4 +12,16 @@ public class MicroBit : MonoBehaviour
     public enum CommandType {SETUSE, SETPIXEL, WRITEANALOG, WRITEDIGITAL};
     public enum COMPort {COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9};
     /* #endRegion */
+    /* #region Connection Settings */
+    private volatile bool serialLock;
+    private SerialPort serial;
+    private Thread handleThread;
+    public COMPort COM = COMPort.COM3;
+    public int BAUD = 115200;
+    private bool connected;
+    public bool Connected
+    {
+        get{ return this.connected; }
+    }
+    /* #endRegion */
 }
