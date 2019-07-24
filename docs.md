@@ -1,11 +1,11 @@
 # Instantation
-To instate a micro:bit object, simply attach `MicroBit.cs` to the gameobject you wish to control. Then, create a second script on that object, where you can interact with the micro:bit. From that script, gain access to your micro:bit by calling `GetComponent<MicroBit>();`.
+To instate a Micro:bit object, simply attach `MicroBit.cs` to the GameObject you wish to control. Then, create a second script on that object, where you can interact with the Micro:bit. From that script, gain access to your Micro:bit by calling `GetComponent<MicroBit>();`.
 
-These Docs will assume references to the Micro:Bit object will be done through the syntax `controller.foo()`. This assumes that you have created a micro:bit object and referenced it like `MicroBit controller = GetComponent<MicroBit>();`. If you wish to call your variable something else, feel free to do so, but be wary of copy-pasting code.
+These docs will assume references to the Micro:bit object will be done through the syntax `controller.foo()`. This assumes that you have created a Micro:bit object and referenced it like `MicroBit controller = GetComponent<MicroBit>();`. If you wish to call your variable something else, feel free to do so, but be wary of copy-pasting code.
 # Full API
 The MiTy framework allows accses to the Micro:Bit through asynchronously updated properties. It also does not track a variable unless specfically asked to. For example, take the accelerometer input. To access the x, y, and z coordinates, you simply need to call `controller.X;`, `controller.Y;`, `controller.Z;`. However, by default the accelerometer is not enabled. To enable the accelerometer, call `controller.UseAccelerometer = true`. If you fail to do this, a `System.ArgumentException` will be thrown, declaring: "Port is not configured to use Accelerometer". Similarly, if you wish to stop using the accelerometer input, call `controller.UseAccelerometer = false`
 
-Currently accsses to the micro:bit inputs are done using the following syntax
+Currently accsses to the Micro:bit inputs are done using the following syntax
 
 | Input | Use Name | Default state | Data Type | Format | Refrence |
 |-------|----------|---------------|-----------|--------|----------|
@@ -21,9 +21,9 @@ Pins will be implemented very soon!
 
 \* Note: Accelerometer components are given in milli-Gs, where 1024 mG = 1 G. The accelerometer has a maximum value of ± 2048, even though the actual value may be higher, so 
 
-MiTy creates a thread that will asynchronously update the members of the MicroBit class. Though the properties are not shown as volatile, they are public interfaces to volatile properties, and are __not__ frame safe.
+MiTy creates a thread that will asynchronously update the members of the Micro:bit class. Though the properties are not shown as volatile, they are public interfaces to volatile properties, and are __not__ frame safe.
 # Examples
-An example script that would spin a Unity rigidbody when the A button is pressed would look like this:
+An example script that would spin a Unity Rigidbody when the A button is pressed would look like this:
 ```
 using System;
 using System.Collections;
