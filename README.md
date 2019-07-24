@@ -1,13 +1,13 @@
 # MiTy
-MIcro:bit in uniTY. Framework for using a Microbit within Unity
+MIcro:bit in uniTY. Framework for using a Micro:bit within Unity
 # Installation
-Download or clone the repository. Import `MicroBit.cs` into unity. The folder "Tools" provides tools to aid in the debug process, such as a powershell COM port terminal. The file `MiTy.hex` contains the hex file that should be flashed to the board. Once you've imported `MicroBit.cs` into your unity project, and flashed the hex file, continue to the Implementation section.
+Download or clone the repository. Import `MicroBit.cs` into Unity. The folder "Tools" provides tools to aid in the debug process, such as a PowerShell COM port terminal. The file `MiTy.hex` contains the HEX file that should be flashed to the board. Once you've imported `MicroBit.cs` into your Unity project, and flashed the HEX file, continue to the Implementation section.
 # Implementation
-Once you have imported `MicroBit.cs` into unity, attach the script to the game object you wish to control. In the inspecter you will have the option to change the COM port and BAUD rate to suite your device and implmentation, although their default settings are most likely correct.
+Once you have imported `MicroBit.cs` into Unity, attach the script to the GameObject you wish to control. In the inspector, you will have the option to change the COM port and BAUD rate to suit your device and implmentation, although their default settings are most likely correct.
 
-Then, create a second script on your gameobject, where you will include your controller logic. In the attached example, this is `helicopter.cs`.
+Then, create a second script on your GameObject, where you will include your controller logic. In the attached example, this is `helicopter.cs`.
 
-In your controller script, create a reference to the MicroBit, with a line such as `MicroBit yourVarName =  GetComponent<MicroBit>();`
+In your controller script, create a reference to the Micro:bit, with a line such as `MicroBit yourVarName =  GetComponent<MicroBit>();`
 Finally, use `gameObject.GetComponent(typeof(MicroBit)) as MicroBit`
 
 From here, visit `docs.md` for a more in-depth guide to the MiTy API.
