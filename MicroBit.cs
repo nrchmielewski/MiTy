@@ -171,7 +171,7 @@ public class MicroBit : MonoBehaviour
         this.needUpdate = true;
         this.connected = true;
         this.end = false;
-        this.serial = new SerialPort("COM5", this.BAUD);
+        this.serial = new SerialPort(this.COMPort.ToString(), this.BAUD);
         this.serial.Open();
         this.handleThread = new Thread(this.threadLoop);
         this.handleThread.Start();
